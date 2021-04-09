@@ -8,10 +8,12 @@
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         r = ""
-        ml = min(map(len, strs))
-        for i in range(len(strs)):
+        if strs == []:
+            return r
+        ml = min([len(i) for i in strs])
+        for i in range(ml):
             s = ''
-            for j in range(ml):
+            for j in range(len(strs)):
                 if s == '':
                     s = strs[j][i]
                 else:
